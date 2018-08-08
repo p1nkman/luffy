@@ -10,8 +10,7 @@ urlpatterns = [
     # 键值对的形式，表明了各请求方式对应的方法，所以特定的请求方式，便可执行相应的方法。
     # 如果as_view()里写了相应的键值对，在视图CBV中必须写出相应的方法。
 
-    url(r'courses/$',course.CoursesView.as_view({'get':'list',"post":"create"})),
-    url(r'auth/$',course.AuthView.as_view({'post':'login'})),
+    url(r'courses/$',course.CoursesView.as_view({'get':'list'})),
 
     url(r'courses/(?P<pk>\d+)/$',course.CoursesView.as_view({'get':'retrieve'}))
 ]

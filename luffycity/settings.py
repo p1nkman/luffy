@@ -50,6 +50,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    "api.middleware.cors.CorsMiddleware",
 ]
 
 ROOT_URLCONF = 'luffycity.urls'
@@ -128,4 +129,8 @@ REST_FRAMEWORK = {
     "VERSION_PARAM":"version",
     "DEFAULT_VERSION":"v1",   # 默认版本
     "ALLOWED_VERSIONS":["v1","v2"],  # 可允许的版本
+    # "PAGE_SIZE":1,
 }
+
+CORS_METHODS = "PUT,DELETE"
+CORS_HEADERS = "Content-Type"

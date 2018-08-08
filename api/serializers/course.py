@@ -4,10 +4,17 @@ from api import models
 
 class CourseSerializers(serializers.ModelSerializer):
     level = serializers.CharField(source="get_level_display")
+    price_period = serializers.SerializerMethodField()
     class Meta:
         model = models.Course
-        fields = "__all__"
-        depth = 5
+        # fields = "__all__"
+        fields = ["name","level","price_period"]
+        # depth = 5
+
+    def get_price_period(self,row):
+        price_list = row.price_policy.all()
+        return [{"period": str(i.valid_period)+"天","price":i.price } for i in price_list]
+
 
 
 class DegreeSerializers(serializers.ModelSerializer):
