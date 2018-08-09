@@ -1,6 +1,6 @@
 
 from django.conf.urls import url
-from api.views import course
+from api.views import course,shoppingcar
 from api import views
 
 
@@ -11,6 +11,7 @@ urlpatterns = [
     # 如果as_view()里写了相应的键值对，在视图CBV中必须写出相应的方法。
 
     url(r'courses/$',course.CoursesView.as_view({'get':'list',"post":"create"})),
+    url(r'shopping/$',shoppingcar.ShoppingCarView.as_view({'get':'list',"post":"create","delete":"destroy","put":"update"})),
     url(r'auth/$',course.AuthView.as_view({'post':'login'})),
 
     url(r'courses/(?P<pk>\d+)/$',course.CoursesView.as_view({'get':'retrieve'}))

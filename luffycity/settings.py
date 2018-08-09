@@ -130,7 +130,10 @@ REST_FRAMEWORK = {
     "DEFAULT_VERSION":"v1",   # 默认版本
     "ALLOWED_VERSIONS":["v1","v2"],  # 可允许的版本
     # "PAGE_SIZE":1,
+    "DEFAULT_PARSER_CLASSES":["rest_framework.parsers.JSONParser"],
 }
 
 CORS_METHODS = "PUT,DELETE"
 CORS_HEADERS = "Content-Type"
+
+SHOPPING_CAR = "shopping_car_%s_%s"
